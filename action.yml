@@ -2,10 +2,27 @@ name: 'Your name here'
 description: 'Provide a description here'
 author: 'Your name or organization here'
 inputs:
-  milliseconds: # change this
+  app-id:
+    description: 'Can be found at "App Store" -> "App Information" -> "General Information" -> "Apple ID"'
     required: true
-    description: 'input description here'
-    default: 'default value if applicable'
+  bundle-version-string:
+    description: 'The CFBundleVersion of the build'
+    required: true
+  group-name:
+    description: 'The external testing group name'
+    required: true
+  issuer-id:
+    description: 'The AppStoreConnect API Key Issuer Identifier'
+    required: true
+  api-key-id:
+    description: 'The Key ID for AppStore Connect API'
+    required: true
+  api-private-key:
+    description: 'The PKCS8 format Private Key for AppStore Connect API'
+    required: true
+  whats-new:
+    description: "Text for the What's New section for English (U.S.)."
+    required: false    
 runs:
   using: 'node16'
   main: 'dist/index.js'

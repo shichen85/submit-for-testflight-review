@@ -1,29 +1,22 @@
-import {wait} from '../src/wait'
-import * as process from 'process'
-import * as cp from 'child_process'
-import * as path from 'path'
-import {expect, test} from '@jest/globals'
+import {readFileSync} from 'fs'
+import {updateTestFlight} from '../src/app-store-connect-api'
+import {test} from '@jest/globals'
 
-test('throws invalid number', async () => {
-  const input = parseInt('foo', 10)
-  await expect(wait(input)).rejects.toThrow('milliseconds not a number')
-})
+test('Test updating AppStore Connect', async () => {
+  const appId = '123456789'
+  const version = '100.100.2017'
+  const group = 'external'
 
-test('wait 500 ms', async () => {
-  const start = new Date()
-  await wait(500)
-  const end = new Date()
-  var delta = Math.abs(end.getTime() - start.getTime())
-  expect(delta).toBeGreaterThan(450)
-})
+  const secret = readFileSync('secret.json', 'utf8')
+  const macConfig = JSON.parse(secret)
 
-// shows how the runner will run a javascript action with env / stdout protocol
-test('test runs', () => {
-  process.env['INPUT_MILLISECONDS'] = '500'
-  const np = process.execPath
-  const ip = path.join(__dirname, '..', 'lib', 'main.js')
-  const options: cp.ExecFileSyncOptions = {
-    env: process.env
-  }
-  console.log(cp.execFileSync(np, [ip], options).toString())
-})
+  await updateTestFlight(
+    appId,
+    version,
+    group,
+    macConfig.iss,
+    macConfig.kid,
+    macConfig.key,
+    'desc'
+  )
+}, 10000000)

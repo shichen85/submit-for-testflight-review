@@ -1,16 +1,25 @@
 import * as core from '@actions/core'
-import {wait} from './wait'
+import {updateTestFlight} from './app-store-connect-api'
 
 async function run(): Promise<void> {
   try {
-    const ms: string = core.getInput('milliseconds')
-    core.debug(`Waiting ${ms} milliseconds ...`) // debug is only output if you set the secret `ACTIONS_STEP_DEBUG` to true
+    const appId = core.getInput('app-id')
+    const version = core.getInput('bundle-version-string')
+    const groupName = core.getInput('group-name')
+    const issuerId = core.getInput('issuer-id')
+    const apiKeyId = core.getInput('api-key-id')
+    const apiPrivateKey = core.getInput('api-private-key')
+    const whatsnew = core.getInput('whats-new')
 
-    core.debug(new Date().toTimeString())
-    await wait(parseInt(ms, 10))
-    core.debug(new Date().toTimeString())
-
-    core.setOutput('time', new Date().toTimeString())
+    await updateTestFlight(
+      appId,
+      version,
+      groupName,
+      issuerId,
+      apiKeyId,
+      apiPrivateKey,
+      whatsnew
+    )
   } catch (error) {
     if (error instanceof Error) core.setFailed(error.message)
   }
