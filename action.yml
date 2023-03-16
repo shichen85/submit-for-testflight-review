@@ -1,6 +1,6 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'submit-for-testflight-review'
+description: 'Submit an iOS app build for TestFlight review.'
+author: 'shichen85'
 inputs:
   app-id:
     description: 'Can be found at "App Store" -> "App Information" -> "General Information" -> "Apple ID"'
@@ -26,3 +26,5 @@ inputs:
 runs:
   using: 'node16'
   main: 'dist/index.js'
+branding:
+  icon: 'tag'

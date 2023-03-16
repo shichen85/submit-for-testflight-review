@@ -1,8 +1,8 @@
 {
-  "name": "typescript-action",
+  "name": "submit-for-testflight-review",
   "version": "1.0.0",
   "private": true,
-  "description": "TypeScript template action",
+  "description": "Submit an iOS app build for TestFlight review.",
   "main": "lib/main.js",
   "scripts": {
     "build": "tsc",
