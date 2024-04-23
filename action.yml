@@ -24,7 +24,7 @@ inputs:
     description: "Text for the What's New section for English (U.S.)."
     required: false    
 runs:
-  using: 'node16'
+  using: 'node20'
   main: 'dist/index.js'
 branding:
   icon: 'tag'
