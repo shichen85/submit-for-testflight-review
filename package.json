@@ -1,6 +1,6 @@
 {
   "name": "submit-for-testflight-review",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": true,
   "description": "Submit an iOS app build for TestFlight review.",
   "main": "lib/main.js",
