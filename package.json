@@ -22,7 +22,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.11.1",
+    "@actions/core": "^3.0.0",
     "axios": "^1.13.5",
     "jsonwebtoken": "^9.0.2"
   },
