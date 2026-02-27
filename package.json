@@ -23,7 +23,7 @@
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.11.1",
-    "axios": "^1.13.5",
+    "axios": "^1.13.6",
     "jsonwebtoken": "^9.0.2"
   },
   "devDependencies": {
